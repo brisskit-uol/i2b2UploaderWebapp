@@ -1,0 +1,94 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		 
+		<!-- amazon  jboss vm  -->
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/i2b2" />
+		<property name="username" value="i2b2" />
+        <property name="password" value="i2b2" />  
+        
+        
+        <!-- laptop 
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://i2b2up:5432/i2b2" />
+		<property name="username" value="i2b2" />
+        <property name="password" value="i2b2" />  
+        -->
+         
+	</bean>
+
+ 
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>orm/Users.hbm.xml</value>
+				<value>orm/UserRoles.hbm.xml</value>
+				<value>orm/Projects.hbm.xml</value>
+			
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop> 
+				<!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+				
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<prop key="hibernate.connection.release_mode">auto</prop>
+			</props>
+		</property>
+	</bean>
+
+	
+	<bean id="userDao" class="org.brisskit.i2b2.webapp.dao.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="projectsDao" class="org.brisskit.i2b2.webapp.dao.ProjectsDaoImp">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>	
+	 	      
+	<bean id="myUserDetailsService" class="org.brisskit.i2b2.webapp.service.MyUserDetailsService">
+		<property name="userDao" ref="userDao" />
+	</bean>
+ 	 
+	<bean id="projectsService" class="org.brisskit.i2b2.webapp.service.ProjectsServiceImp">
+		<property name="projectsDao" ref="projectsDao" />
+	</bean>
+	
+	<bean id="userService" class="org.brisskit.i2b2.webapp.service.UserServiceImp">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="userServicePointCut"
+			expression="execution(* org.brisskit.i2b2.webapp.service.*Service.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="userServicePointCut" />
+	</aop:config>
+ 
+</beans>

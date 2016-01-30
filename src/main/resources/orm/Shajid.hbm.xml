@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-Jan-2015 14:11:32 by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="org.brisskit.i2b2.webapp.model.Shajid" table="shajid" schema="shajid">
+        <composite-id name="id" class="ShajidId">
+            <key-property name="CHlevel" type="int">
+                <column name="c_hlevel" />
+            </key-property>
+            <key-property name="CFullname" type="string">
+                <column name="c_fullname" length="700" />
+            </key-property>
+            <key-property name="CName" type="string">
+                <column name="c_name" length="2000" />
+            </key-property>
+            <key-property name="CSynonymCd" type="char">
+                <column name="c_synonym_cd" length="1" />
+            </key-property>
+            <key-property name="CVisualattributes" type="string">
+                <column name="c_visualattributes" length="3" />
+            </key-property>
+            <key-property name="CTotalnum" type="java.lang.Integer">
+                <column name="c_totalnum" />
+            </key-property>
+            <key-property name="CBasecode" type="string">
+                <column name="c_basecode" length="50" />
+            </key-property>
+            <key-property name="CMetadataxml" type="string">
+                <column name="c_metadataxml" />
+            </key-property>
+            <key-property name="CFacttablecolumn" type="string">
+                <column name="c_facttablecolumn" length="50" />
+            </key-property>
+            <key-property name="CTablename" type="string">
+                <column name="c_tablename" length="50" />
+            </key-property>
+            <key-property name="CColumnname" type="string">
+                <column name="c_columnname" length="50" />
+            </key-property>
+            <key-property name="CColumndatatype" type="string">
+                <column name="c_columndatatype" length="50" />
+            </key-property>
+            <key-property name="COperator" type="string">
+                <column name="c_operator" length="10" />
+            </key-property>
+            <key-property name="CDimcode" type="string">
+                <column name="c_dimcode" length="700" />
+            </key-property>
+            <key-property name="CComment" type="string">
+                <column name="c_comment" />
+            </key-property>
+            <key-property name="CTooltip" type="string">
+                <column name="c_tooltip" length="900" />
+            </key-property>
+            <key-property name="MAppliedPath" type="string">
+                <column name="m_applied_path" length="700" />
+            </key-property>
+            <key-property name="updateDate" type="timestamp">
+                <column name="update_date" length="29" />
+            </key-property>
+            <key-property name="downloadDate" type="timestamp">
+                <column name="download_date" length="29" />
+            </key-property>
+            <key-property name="importDate" type="timestamp">
+                <column name="import_date" length="29" />
+            </key-property>
+            <key-property name="sourcesystemCd" type="string">
+                <column name="sourcesystem_cd" length="50" />
+            </key-property>
+            <key-property name="valuetypeCd" type="string">
+                <column name="valuetype_cd" length="50" />
+            </key-property>
+            <key-property name="MExclusionCd" type="string">
+                <column name="m_exclusion_cd" length="25" />
+            </key-property>
+            <key-property name="CPath" type="string">
+                <column name="c_path" length="700" />
+            </key-property>
+            <key-property name="CSymbol" type="string">
+                <column name="c_symbol" length="50" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-Jan-2015 14:11:32 by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="org.brisskit.i2b2.webapp.model.PatientMapping" table="patient_mapping" schema="shajid">
+        <composite-id name="id" class="PatientMappingId">
+            <key-property name="patientIde" type="string">
+                <column name="patient_ide" length="200" />
+            </key-property>
+            <key-property name="patientIdeSource" type="string">
+                <column name="patient_ide_source" length="50" />
+            </key-property>
+            <key-property name="projectId" type="string">
+                <column name="project_id" length="50" />
+            </key-property>
+        </composite-id>
+        <property name="patientNum" type="int">
+            <column name="patient_num" not-null="true" />
+        </property>
+        <property name="patientIdeStatus" type="string">
+            <column name="patient_ide_status" length="50" />
+        </property>
+        <property name="uploadDate" type="timestamp">
+            <column name="upload_date" length="29" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="update_date" length="29" />
+        </property>
+        <property name="downloadDate" type="timestamp">
+            <column name="download_date" length="29" />
+        </property>
+        <property name="importDate" type="timestamp">
+            <column name="import_date" length="29" />
+        </property>
+        <property name="sourcesystemCd" type="string">
+            <column name="sourcesystem_cd" length="50" />
+        </property>
+        <property name="uploadId" type="java.lang.Integer">
+            <column name="upload_id" />
+        </property>
+    </class>
+</hibernate-mapping>

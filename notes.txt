@@ -1,0 +1,10 @@
+3 files to change to deploy war on Jboss
+
+uploader.properties
+log4j.properties
+spring-database.xml
+MainController -> i2b2instance -> comment url = "i2b2up";
+i2b2instance iframe change
+
+Git 
+org.brisskit.i2b2.webapp.utils.SendMailTLS -> need password

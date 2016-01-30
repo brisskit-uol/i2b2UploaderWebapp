@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-Jan-2015 14:11:32 by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="org.brisskit.i2b2.webapp.model.PatientDimension" table="patient_dimension" schema="shajid">
+        <id name="patientNum" type="int">
+            <column name="patient_num" />
+            <generator class="assigned" />
+        </id>
+        <property name="vitalStatusCd" type="string">
+            <column name="vital_status_cd" length="50" />
+        </property>
+        <property name="birthDate" type="timestamp">
+            <column name="birth_date" length="29" />
+        </property>
+        <property name="deathDate" type="timestamp">
+            <column name="death_date" length="29" />
+        </property>
+        <property name="sexCd" type="string">
+            <column name="sex_cd" length="50" />
+        </property>
+        <property name="ageInYearsNum" type="java.lang.Integer">
+            <column name="age_in_years_num" />
+        </property>
+        <property name="languageCd" type="string">
+            <column name="language_cd" length="50" />
+        </property>
+        <property name="raceCd" type="string">
+            <column name="race_cd" length="50" />
+        </property>
+        <property name="maritalStatusCd" type="string">
+            <column name="marital_status_cd" length="50" />
+        </property>
+        <property name="religionCd" type="string">
+            <column name="religion_cd" length="50" />
+        </property>
+        <property name="zipCd" type="string">
+            <column name="zip_cd" length="10" />
+        </property>
+        <property name="statecityzipPath" type="string">
+            <column name="statecityzip_path" length="700" />
+        </property>
+        <property name="incomeCd" type="string">
+            <column name="income_cd" length="50" />
+        </property>
+        <property name="patientBlob" type="string">
+            <column name="patient_blob" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="update_date" length="29" />
+        </property>
+        <property name="downloadDate" type="timestamp">
+            <column name="download_date" length="29" />
+        </property>
+        <property name="importDate" type="timestamp">
+            <column name="import_date" length="29" />
+        </property>
+        <property name="sourcesystemCd" type="string">
+            <column name="sourcesystem_cd" length="50" />
+        </property>
+        <property name="uploadId" type="java.lang.Integer">
+            <column name="upload_id" />
+        </property>
+    </class>
+</hibernate-mapping>

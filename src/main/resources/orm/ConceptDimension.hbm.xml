@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-Jan-2015 14:11:32 by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="org.brisskit.i2b2.webapp.model.ConceptDimension" table="concept_dimension" schema="shajid">
+        <id name="conceptPath" type="string">
+            <column name="concept_path" length="700" />
+            <generator class="assigned" />
+        </id>
+        <property name="conceptCd" type="string">
+            <column name="concept_cd" length="50" />
+        </property>
+        <property name="nameChar" type="string">
+            <column name="name_char" length="2000" />
+        </property>
+        <property name="conceptBlob" type="string">
+            <column name="concept_blob" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="update_date" length="29" />
+        </property>
+        <property name="downloadDate" type="timestamp">
+            <column name="download_date" length="29" />
+        </property>
+        <property name="importDate" type="timestamp">
+            <column name="import_date" length="29" />
+        </property>
+        <property name="sourcesystemCd" type="string">
+            <column name="sourcesystem_cd" length="50" />
+        </property>
+        <property name="uploadId" type="java.lang.Integer">
+            <column name="upload_id" />
+        </property>
+    </class>
+</hibernate-mapping>

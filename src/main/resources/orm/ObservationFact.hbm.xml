@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-Jan-2015 14:11:32 by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="org.brisskit.i2b2.webapp.model.ObservationFact" table="observation_fact">
+        <composite-id name="id" class="ObservationFactId">
+            <key-property name="patientNum" type="int">
+                <column name="patient_num" />
+            </key-property>
+            <key-property name="conceptCd" type="string">
+                <column name="concept_cd" length="50" />
+            </key-property>
+            <key-property name="modifierCd" type="string">
+                <column name="modifier_cd" length="100" />
+            </key-property>
+            <key-property name="startDate" type="timestamp">
+                <column name="start_date" length="29" />
+            </key-property>
+            <key-property name="encounterNum" type="int">
+                <column name="encounter_num" />
+            </key-property>
+            <key-property name="instanceNum" type="int">
+                <column name="instance_num" />
+            </key-property>
+            <key-property name="providerId" type="string">
+                <column name="provider_id" length="50" />
+            </key-property>
+        </composite-id>
+        <property name="valtypeCd" type="string">
+            <column name="valtype_cd" length="50" />
+        </property>
+        <property name="tvalChar" type="string">
+            <column name="tval_char" />
+        </property>
+        <property name="nvalNum" type="big_decimal">
+            <column name="nval_num" precision="18" scale="5" />
+        </property>
+        <property name="valueflagCd" type="string">
+            <column name="valueflag_cd" length="50" />
+        </property>
+        <property name="quantityNum" type="big_decimal">
+            <column name="quantity_num" precision="18" scale="5" />
+        </property>
+        <property name="unitsCd" type="string">
+            <column name="units_cd" length="50" />
+        </property>
+        <property name="endDate" type="timestamp">
+            <column name="end_date" length="29" />
+        </property>
+        <property name="locationCd" type="string">
+            <column name="location_cd" length="50" />
+        </property>
+        <property name="observationBlob" type="string">
+            <column name="observation_blob" />
+        </property>
+        <property name="confidenceNum" type="big_decimal">
+            <column name="confidence_num" precision="18" scale="5" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="update_date" length="29" />
+        </property>
+        <property name="downloadDate" type="timestamp">
+            <column name="download_date" length="29" />
+        </property>
+        <property name="importDate" type="timestamp">
+            <column name="import_date" length="29" />
+        </property>
+        <property name="sourcesystemCd" type="string">
+            <column name="sourcesystem_cd" length="50" />
+        </property>
+        <property name="uploadId" type="java.lang.Integer">
+            <column name="upload_id" />
+        </property>
+        <property name="textSearchIndex" type="int">
+            <column name="text_search_index" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>
